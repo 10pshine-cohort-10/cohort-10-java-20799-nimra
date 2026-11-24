@@ -17,5 +17,8 @@ public class ContactController {
     public List<Contact> getAll() { return repo.findAll(); }
 
     @PostMapping
-    public Contact create(@RequestBody Contact contact) { return repo.save(contact); }
+    public Contact create(@RequestBody Contact contact) {
+    contact.setId(null);
+    return repo.save(contact);
+}
 }
