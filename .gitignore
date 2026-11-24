@@ -1,0 +1,14 @@
+
+.idea/
+*.iml
+
+# Gradle / Java
+backend/build/
+backend/.gradle/
+*.class
+*.jar
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
