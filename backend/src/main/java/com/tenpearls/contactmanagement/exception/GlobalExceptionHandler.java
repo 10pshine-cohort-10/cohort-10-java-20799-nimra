@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataAccessException.class)
-    public ResponseEntity> handleDatabaseError(DataAccessException ex) {
+    public ResponseEntity<Map<String, String>> handleDatabaseError(DataAccessException ex) {
+
         return ResponseEntity
-                .status(HttpStatus.SERVICE_UNAVAILABLE)
-                .body(Map.of("error", "Database is currently unavailable. Please try again later."));
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Map.of(
+                        "error",
+                        "Database is currently unavailable. Please try again later."
+                ));
     }
 }
